@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-linkedin: #0077b5;
+  --color-instagram: #e4405f;
+  --color-facebook: #1877f2;
+  --color-secondary: #94a3b8;
+}
+
+:root {
+  --bg-dark: #0f172a;
+  --bg-card: rgba(30, 41, 59, 0.6);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.glass-card {
+  @apply bg-[#1e293b99] border border-white/[0.05] rounded-[28px] p-8 backdrop-blur-2xl transition-all duration-500 hover:border-white/10;
+}
+
+.btn-social {
+  @apply px-6 py-3 rounded-2xl font-bold cursor-pointer transition-all active:scale-95 shadow-xl;
+}
+
+.btn-linkedin { @apply bg-[#0077b5] text-white hover:bg-[#00669c]; }
+.btn-instagram { @apply bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white hover:opacity-90; }
+.btn-facebook { @apply bg-[#1877f2] text-white hover:bg-[#166fe5]; }
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media print {
+  aside, header, button { display: none !important; }
+  body, main { background: white !important; color: black !important; }
+  .glass-card { background: white !important; border: 1px solid #ddd !important; color: black !important; box-shadow: none !important; break-inside: avoid; }
+}
